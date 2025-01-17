@@ -1,2 +1,2 @@
 #!/bin/sh
-kill -9 $(ps aux | grep flask)
+curl -X POST http://localhost:80/shutdown
