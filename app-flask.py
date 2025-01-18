@@ -14,10 +14,11 @@ def home():
 def about():
     return jsonify({"version": "1.0", "author": "Yagmur Ozden"}), 200
 
-""" @app.route('/shutdown', methods=['POST'])
+@app.route('/shutdown', methods=['POST'])
 def shutdown():
    print("Shutting down gracefully...")
-   return 'Server shutting down...' """
+   os.kill(os.getpid(), signal.SIGINT)
+   return 'Server shutting down...'
 
 
 if __name__ == '__main__':
