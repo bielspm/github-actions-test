@@ -8,7 +8,7 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Welcome to the API!"}), 200
+    return jsonify({"message": "Welcome to the API! V2"}), 200
 
 @app.route('/about')
 def about():

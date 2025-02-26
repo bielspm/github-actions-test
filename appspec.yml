@@ -5,7 +5,7 @@ files:
     destination: /home/ubuntu/flask-app
 file_exists_behavior: OVERWRITE
 hooks:
-  AfterInstall:
+  BeforeInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
       runas: root
@@ -13,4 +13,7 @@ hooks:
     - location: scripts/start_server.sh
       timeout: 300
       runas: root
-               
+  ApplicationStop:
+    - location: scripts/sstop_server.sh
+      timeout: 300
+      runas: root
