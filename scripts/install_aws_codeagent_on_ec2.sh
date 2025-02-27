@@ -8,3 +8,4 @@ chmod +x ./install
 sudo ./install auto
 
 
+#systemctl status codedeploy-agent
