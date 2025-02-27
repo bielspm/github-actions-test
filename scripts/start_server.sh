@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 sudo su
 cd /home/github-actions-test
 source venv/bin/activate
