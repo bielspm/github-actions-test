@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/sh -ex
 sudo su
 #sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update -y
@@ -10,7 +10,7 @@ sudo apt-get update -y
 cd /home/github-actions-test
 source venv/bin/activate
 #python3.10 -m venv venv
-echo "venv criado"
+echo "venv ativado"
 pip install -r requirements.txt
 echo "instalando requirements.txt"
 apt remove apache2 -y
