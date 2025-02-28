@@ -1,5 +1,5 @@
-#!/bin/bash -ex
-sudo su
+#!/bin/sh -ex
+#sudo su
 #sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update -y
 #sudo apt-get install python3.10 -y
@@ -8,7 +8,7 @@ sudo apt-get update -y
 #cd /home
 #cd github-actions-test
 cd /home/github-actions-test
-source venv/bin/activate
+. venv/bin/activate
 #python3.10 -m venv venv
 echo "venv ativado"
 pip install -r requirements.txt
