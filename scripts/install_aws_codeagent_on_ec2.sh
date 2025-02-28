@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -ex
 sudo apt update
 sudo apt install ruby-full
 sudo apt install wget

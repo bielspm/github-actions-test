@@ -1,4 +1,4 @@
-#!/bin/bash #!/bin/bash -ex
+#!/bin/bash -ex
 sudo su
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update -y

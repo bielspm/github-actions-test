@@ -1,2 +1,2 @@
-#!/bin/bash #!/bin/bash -ex
+#!/bin/bash -ex
 sudo pkill gunicorn
