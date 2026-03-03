@@ -41,3 +41,4 @@ jobs:
             Este PR foi criado automaticamente pelo GitHub Actions.
         base: main
         branch: ${{ github.ref_name }}
+        draft: false
