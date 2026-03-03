@@ -8,15 +8,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 permissions:
   contents: read
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
@@ -37,3 +33,13 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        base: main
+        title: "Auto PR - ${{ github.ref_name }}"
+        body: |
+            Este PR foi criado automaticamente pelo GitHub Actions.
+            branch: pr/${{ github.ref_name }}
+            delete-branch: false
