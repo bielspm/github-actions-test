@@ -40,5 +40,5 @@ jobs:
         title: "Auto PR - ${{ github.ref_name }}"
         body: |
             Este PR foi criado automaticamente pelo GitHub Actions.
-        branch: main
+        base: main
         delete-branch: false
