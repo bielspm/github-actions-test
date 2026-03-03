@@ -5,9 +5,7 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "feature"]
 permissions:
   contents: read
 jobs:
@@ -41,5 +39,3 @@ jobs:
         body: |
             Este PR foi criado automaticamente pelo GitHub Actions.
         base: main
-        branch: pr/${{ github.ref_name }}
-        delete-branch: false
