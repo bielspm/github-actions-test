@@ -32,8 +32,8 @@ jobs:
     # - name: Test with pytest
     #   run: |
     #     pytest
-    - name: Realizar Alterações
-      run: date +%s > timestamp.txt
+    # - name: Realizar Alterações
+    #   run: date +%s > timestamp.txt
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v8
       with:
