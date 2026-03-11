@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 0
     # - name: Set up Python 3.10
@@ -35,14 +35,9 @@ jobs:
     #   run: |
     #     pytest
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v6
+      uses: peter-evans/create-pull-request@v8
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: "chore: automated changes"
         title: "Auto PR - ${{ github.ref_name }}"
-        body: |
-            Este PR foi criado automaticamente pelo GitHub Actions.
         base: main
-        branch: feature-pr-${{ github.run_number }}
-        delete-branch: true
-        draft: false
