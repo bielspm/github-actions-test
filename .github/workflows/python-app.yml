@@ -41,3 +41,4 @@ jobs:
         commit-message: "chore: automated changes"
         title: "Auto PR - ${{ github.ref_name }}"
         base: main
+        branch: feature         
