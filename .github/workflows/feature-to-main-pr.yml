@@ -1,0 +1,39 @@
+name: Feature to Main PR
+
+on:
+  push:
+    branches:
+      - feature
+      - feature/**
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Automatic PR from feature branch'
+          title: 'Merge feature → main'
+          body: |
+            ## Automatic Pull Request
+            
+            This PR was automatically created when code was pushed to the `feature` branch.
+            
+            - Verify all tests pass
+            - Review the changes
+            - Merge when ready
+          branch: feature
+          base: main
+          delete-branch: false
+          draft: false
