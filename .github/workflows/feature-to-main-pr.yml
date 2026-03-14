@@ -1,0 +1,39 @@
+name: Feature to Main PR
+
+on:
+  push:
+    branches:
+      - feature
+      - feature/**
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Pull Request with GitHub CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_TITLE="Merge feature → main"
+          PR_BODY="## Automatic Pull Request
+          
+          This PR was automatically created when code was pushed to the \`feature\` branch.
+          
+          - Verify all tests pass
+          - Review the changes
+          - Merge when ready"
+          
+          # Verifica se já existe PR aberto
+          if ! gh pr list --base main --head ${{ github.ref_name }} --json number | grep -q '"number"'; then
+            gh pr create --base main --head ${{ github.ref_name }} --title "$PR_TITLE" --body "$PR_BODY"
+            echo "✅ Pull Request criado com sucesso!"
+          else
+            echo "ℹ️  PR já existe para esta branch"
+          fi
